@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Guestbook Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="guestbook.js" defer></script>
+</head>
+<body>
+  <main class="guestbook">
+    <form id="comment-form">
+      <div class="fields-row">
+        <label>
+          Name *
+          <input name="name" required maxlength="80"
+            placeholder="Your name" autocomplete="name">
+        </label>
+
+        <label>
+          Email
+          <input name="email" type="email" maxlength="254"
+            placeholder="Optional" autocomplete="email">
+        </label>
+
+        <label>
+          Website
+          <input name="website" type="url" maxlength="500"
+            placeholder="https://">
+        </label>
+      </div>
+
+      <label class="comment-label">
+        <span class="comment-heading">
+          Comment *
+          <span id="character-count">0 / 2,000</span>
+        </span>
+        <textarea name="comment" required maxlength="2000"
+          placeholder="Write something..." rows="4"></textarea>
+      </label>
+
+      <button type="submit">Send comment</button>
+      <p id="form-message" role="status" aria-live="polite"></p>
+    </form>
+
+    <section class="comments-section">
+      <div class="comments-heading">
+        <h2>Comments (<span id="comment-count">0</span>)</h2>
+        <label class="sort-label">
+          <span class="visually-hidden">Sort comments</span>
+          <select id="sort-comments">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="comments-list" aria-live="polite"></div>
+    </section>
+  </main>
+</body>
+</html>
